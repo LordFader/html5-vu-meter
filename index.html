@@ -1,0 +1,116 @@
+<!-- Matteo Vinci, Alessandro Aliberti: VuMeter - Elaborazione dell'audio digitale - Ingegneria del cinema e dei mezzi di comunicazione - 2012-2013 -->
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>EAD - HTML5 + SVG Vu Meter</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <script src="lib/jquery-1.8.3.min.js"></script>
+        <script src="lib/jquery.svg.min.js"></script>
+        <script src="js/functions.js"></script>
+        <!-- WebGL stuff -->
+        <script src="js/base.js"></script>
+        <script src="js/cameracontroller.js"></script>
+        <script src="js/shader.js"></script>
+
+        <!-- TODO(kbr): remove this dependency -->
+        <script src="js/matrix4x4.js"></script>
+
+        <!-- Visualizer GL library -->
+        <script type="text/javascript" src="js/visualizer.js"></script>
+        <style>
+            *{margin: 0; padding: 0; border: none; line-height: 1.2em;}
+            
+            body
+            {
+                font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+                line-height: 20px;
+                color: #fff;
+                text-align: center;
+                font-size: 62.5%/1.6;
+                background-color: #f0f0f0;
+            }
+            
+            .wrapper
+            {
+                display: inline-block;
+                vertical-align: bottom;
+                border-top: 20px solid #333;
+                border-left: 20px solid #333;
+                border-right: 20px solid #333;
+                background-color: #333;
+            }
+            
+            .sub
+            {
+                background-color: #333;
+                width: 100%;
+                padding: 10px 0;
+            }
+            
+            
+            .sub p
+            {
+                font-size: 1.5em;
+            }
+
+            #spectrumView, #vuView
+            {
+                width: 550px;
+                height: 400px;
+                background: url('images/loader.gif') center no-repeat white;
+            }
+            
+            #vuView
+            {
+                margin-bottom: 4px;
+            }
+            
+            .desc
+            {
+                margin: 2% auto;
+            }
+            
+            .desc p
+            {
+                font-size: 1.5em;
+                width: 80%;
+                color: #333;
+                font-weight: lighter;
+                margin: 10px auto;
+            }
+            
+            .tips
+            {
+                font-size: 1em;
+                color: #333;
+                font-weight: lighter;
+                width: 70%;
+                margin: 20px auto;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="desc">
+            <p><strong>HTML5 + SVG VU Meter</strong> - Alessandro Aliberti, Matteo Vinci - Elaborazione dell'audio digitale, a.a. 2012-2013</p>
+            <p>Ingegneria del cinema e dei mezzi di comunicazione - Politecnico di Torino</p>
+        </div>
+        <div class="wrapper">
+            <div id="vuView"></div>
+            <div class="sub">
+                <p>VU meter [db]</p>
+            </div>
+        </div>
+        <div class="wrapper">
+            <canvas id="spectrumView">
+                <p>Your browser is sooooo old! Download a modern one now! </p>
+            </canvas>
+            <div class="sub">
+                <p>Frequency [Hz]</p>
+            </div>
+        </div>
+        
+        <p class="tips"><strong>TIP</strong>: It's important to note that this works with Chrome with the --enable-media-stream flag set, Firefox nightly and Opera 12. In chrome type 'chrome://flags' in your address bar. Find 'Enable MediaStream' and enable it.</p>
+    </body>
+</html>
+
+
